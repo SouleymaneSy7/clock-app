@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { Quotes } from "./components/Quotes";
 
 function App() {
-  return <h1>Hello From APP</h1>;
+  return (
+    <>
+      <Quotes />
+    </>
+  );
 }
 
 export default App;
