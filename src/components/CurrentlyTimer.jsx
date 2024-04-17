@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export const CurrentlyTimer = () => {
-  const LOCATION_REQUEST_URL = "https://api.ipbase.com/v1/json/";
+  const LOCATION_REQUEST_URL = "http://ip-api.com/json/";
   const [countryName, setCountryName] = useState(null);
   const [countryCode, setCountryCode] = useState(null);
   const [greeting, setGreeting] = useState("");
@@ -25,8 +25,8 @@ export const CurrentlyTimer = () => {
       .then(function (response) {
         const location = response.data;
 
-        setCountryName(location.country_name);
-        setCountryCode(location.country_code);
+        setCountryName(location.city);
+        setCountryCode(location.countryCode);
       })
       .catch(function (error) {
         console.log(error);
