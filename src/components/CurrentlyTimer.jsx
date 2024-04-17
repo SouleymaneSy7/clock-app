@@ -47,6 +47,14 @@ export const CurrentlyTimer = () => {
   return (
     <section className="currently-timer">
       <div className="currently-timer__greeting">
+        <span className="greeting__icons">
+          {Hours >= 5 && Hours <= 17 ? (
+            <i className="fa-solid fa-sun"></i>
+          ) : (
+            <i className="fa-solid fa-moon"></i>
+          )}
+        </span>
+
         <span className="greeting__text"> Good Morning , </span>
         <span className="greeting__currently">it&apos;s Currently</span>
       </div>
