@@ -5,6 +5,7 @@ export const CurrentlyTimer = () => {
   const LOCATION_REQUEST_URL = "https://api.ipbase.com/v1/json/";
   const [countryName, setCountryName] = useState(null);
   const [countryCode, setCountryCode] = useState(null);
+  const [greeting, setGreeting] = useState("");
 
   let currentTime = new Date();
 
@@ -32,17 +33,29 @@ export const CurrentlyTimer = () => {
       });
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleGreeting = () => {
+    if (Hours >= 5 && Hours <= 11) {
+      setGreeting("Good morning");
+    } else if (Hours >= 12 && Hours <= 17) {
+      setGreeting("Good afternoon");
+    } else {
+      setGreeting("Good evening");
+    }
+  };
+
   useEffect(() => {
     let onMounted = true;
 
     if (onMounted) {
       getLocation();
+      handleGreeting();
     }
 
     return () => {
       onMounted = false;
     };
-  }, []);
+  }, [handleGreeting]);
 
   return (
     <section className="currently-timer">
@@ -55,7 +68,7 @@ export const CurrentlyTimer = () => {
           )}
         </span>
 
-        <span className="greeting__text"> Good Morning , </span>
+        <span className="greeting__text"> {greeting} ,</span>
         <span className="greeting__currently">it&apos;s Currently</span>
       </div>
 
