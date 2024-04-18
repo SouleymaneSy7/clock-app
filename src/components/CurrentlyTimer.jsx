@@ -21,6 +21,15 @@ export const CurrentlyTimer = () => {
     Hours = localTime.getHours();
     Minutes = localTime.getMinutes();
 
+    // Setting the Greet
+    if (Hours >= 5 && Hours <= 11) {
+      setGreeting("Good morning");
+    } else if (Hours >= 12 && Hours <= 17) {
+      setGreeting("Good afternoon");
+    } else {
+      setGreeting("Good evening");
+    }
+
     // Setting time for 12 Hours Format
     if (Hours >= 12) {
       if (Hours > 12) Hours = Hours - 12;
@@ -52,16 +61,6 @@ export const CurrentlyTimer = () => {
       });
   };
 
-  const handleGreeting = () => {
-    if (Hours >= 5 && Hours <= 11) {
-      setGreeting("Good morning");
-    } else if (Hours >= 12 && Hours <= 17) {
-      setGreeting("Good afternoon");
-    } else {
-      setGreeting("Good evening");
-    }
-  };
-
   useEffect(() => {
     let onMounted = true;
 
@@ -71,14 +70,13 @@ export const CurrentlyTimer = () => {
 
     if (onMounted) {
       getLocation();
-      handleGreeting();
     }
 
     return () => {
       onMounted = false;
       clearInterval(interval);
     };
-  }, [handleGreeting, getTime]);
+  }, [getTime]);
 
   return (
     <section className="currently-timer">
