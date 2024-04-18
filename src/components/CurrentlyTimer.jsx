@@ -8,6 +8,7 @@ export const CurrentlyTimer = () => {
   const [countryName, setCountryName] = useState(null);
   const [countryCode, setCountryCode] = useState(null);
   const [greeting, setGreeting] = useState("");
+  const [greetingIcons, setGreetingIcons] = useState(null);
   let [Hours, setHours] = useState(0);
   let [Minutes, setMinutes] = useState(0);
   const [amToPm, setAmToPm] = useState("");
@@ -30,13 +31,19 @@ export const CurrentlyTimer = () => {
       setGreeting("Good evening");
     }
 
+    // Setting the Greet Icons
+    Hours >= 5 && Hours <= 17
+      ? setGreetingIcons(<i className="fa-solid fa-sun"></i>)
+      : setGreetingIcons(<i className="fa-solid fa-moon"></i>);
+
+    // Setting the AM Hours and PM Hours
+    Hours >= 12 ? setAmToPm("PM") : setAmToPm("AM");
+
     // Setting time for 12 Hours Format
     if (Hours >= 12) {
-      if (Hours > 12) Hours = Hours - 12;
-      setAmToPm("PM");
+      if (Hours > 12) Hours -= 12;
     } else if (Hours == 0) {
       Hours = 12;
-      setAmToPm("AM");
     }
 
     setHours(Hours < 10 ? "0" + Hours : Hours);
@@ -81,13 +88,7 @@ export const CurrentlyTimer = () => {
   return (
     <section className="currently-timer">
       <div className="currently-timer__greeting">
-        <span className="greeting__icons">
-          {Hours >= 5 && Hours <= 17 ? (
-            <i className="fa-solid fa-sun"></i>
-          ) : (
-            <i className="fa-solid fa-moon"></i>
-          )}
-        </span>
+        <span className="greeting__icons">{greetingIcons}</span>
 
         <span className="greeting__text"> {greeting} ,</span>
         <span className="greeting__currently">it&apos;s Currently</span>
