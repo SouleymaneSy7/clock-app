@@ -40,7 +40,7 @@ export const MoreDetails = () => {
   }, []);
 
   return (
-    <section className="more-details">
+    <section className="more-details container">
       <div className="more-details__cells">
         <p className="more-details__title">Current Timezone</p>
         <h2 className="more-details__content">{timezone}</h2>

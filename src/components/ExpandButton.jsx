@@ -12,9 +12,9 @@ export const ExpandButton = () => {
       <span className="expand-btn__title">
         {isExpand === true ? "Less" : "More"}
       </span>
-      <div className="expand-btn--arrow">
+      {/* <div className="expand-btn--arrow">
         <i className="fa-solid fa-chevron-down"></i>
-      </div>
+      </div> */}
     </button>
   );
 };

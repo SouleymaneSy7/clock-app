@@ -38,7 +38,7 @@ export const Quotes = () => {
   }, []);
 
   return (
-    <header className="quote-container">
+    <div className="quote-container">
       <div className="quote">
         <p className="quote__body">&quot;{quoteBody}&quot;</p>
         <h3 className="quote__author">{quoteAuthor}</h3>
@@ -52,6 +52,6 @@ export const Quotes = () => {
       >
         <i className="fa-solid fa-repeat"></i>
       </button>
-    </header>
+    </div>
   );
 };

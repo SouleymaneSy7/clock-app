@@ -88,15 +88,17 @@ export const CurrentlyTimer = () => {
   return (
     <section className="currently-timer">
       <div className="currently-timer__greeting">
-        <span className="greeting__icons">{greetingIcons}</span>
+        <div className="greeting__icons">{greetingIcons}</div>
 
-        <span className="greeting__text"> {greeting} ,</span>
-        <span className="greeting__currently">it&apos;s Currently</span>
+        <p className="greeting__text">
+          {greeting}
+          <span className="greeting__currently">, it&apos;s Currently</span>
+        </p>
       </div>
 
       <div className="currently-timer__timers">
         <h1 className="timers__text">
-          {Hours} : {Minutes}
+          {Hours}:{Minutes}
         </h1>
         <span> {amToPm} </span>
       </div>
@@ -106,8 +108,6 @@ export const CurrentlyTimer = () => {
           In {countryName}, {countryCode}
         </p>
       </div>
-
-      <ExpandButton />
     </section>
   );
 };

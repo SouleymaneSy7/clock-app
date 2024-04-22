@@ -96,6 +96,13 @@ button,
 textarea,
 select {
   font: inherit;
+
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+
+  cursor: pointer;
 }
 
 /* Make sure textareas without a rows attribute are not tiny */

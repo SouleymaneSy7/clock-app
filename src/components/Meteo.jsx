@@ -14,7 +14,6 @@ export const Meteo = () => {
         setLongitude(position.coords.longitude);
       });
 
-
       axios
         .get(
           `${
@@ -38,24 +37,42 @@ export const Meteo = () => {
   }, [latitude, longitude]);
 
   return (
-    <div>
-      <div>
-        <img
-          src={`${weatherData.weatherCode}_clear_small.png`}
+    <div className="meteo">
+      <div className="meteo-top">
+        {/* <img
+          className="meteo--icon"
+          src={`${weatherData.weatherCode}`}
           alt="Powered by Tomorrow.io"
-        />
+        /> */}
+        <p className="meteo__temperature">
+          {Math.round(weatherData.temperature)}&deg;
+        </p>
       </div>
-      <div>
-        Temperature: {weatherData.temperature} <sup>&deg;C</sup>{" "}
-      </div>
-      <div>
-        Wind Speed: {weatherData.windSpeed} <span>mph</span>{" "}
-      </div>
-      <div>
-        Humidity: {weatherData.humidity} <span>%</span>{" "}
-      </div>
-      <div>
-        Feelings: {weatherData.temperatureApparent} <sup>&deg;C</sup>{" "}
+
+      <div className="meteo-bottom">
+        <div className="meteo__items">
+          <i className="fa-solid fa-wind"></i>
+          <p className="meteo__wind-speed meteo__text">Wind</p>
+          <p className="meteo__wind-speed__value meteo__text__value">
+            {Math.round(weatherData.windSpeed)} <span>m/h</span>
+          </p>
+        </div>
+
+        <div className="meteo__items">
+          <i className="fa-solid fa-droplet"></i>
+          <p className="meteo__humidy meteo__text">Humidity</p>
+          <p className="meteo__humidy__value meteo__text__value">
+            {weatherData.humidity} <span>%</span>
+          </p>
+        </div>
+
+        <div className="meteo__items">
+          <i className="fa-solid fa-temperature-empty"></i>
+          <p className="meteo__feeling meteo__text">Feeling</p>
+          <p className="meteo__feeling__value meteo__text__value">
+            {Math.round(weatherData.temperatureApparent)} &deg;C
+          </p>
+        </div>
       </div>
     </div>
   );
