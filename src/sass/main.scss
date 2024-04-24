@@ -6,7 +6,8 @@
   --dark-clr: hsl(201, 20%, 17%);
 
   // Fonts
-  --font-family: "DM Sans", sans-serif;
+  --body-font-family: "Josefin Sans", sans-serif;
+  --number-font-family: "Leaner";
   --fw-bold: 700;
   --fw-semi-bold: 600;
   --fw-medium: 500;
@@ -24,7 +25,7 @@
 
   --body-text: var(--quotes);
   // fs-12-18
-  --quotes: clamp(0.9375rem, 0.8723rem + 0.3261vi, 1.125rem);
+  --quotes: clamp(1rem, 0.913rem + 0.4348vi, 1.25rem);
   // fs-15-20
   --greeting: clamp(0.9375rem, 0.8288rem + 0.5435vi, 1.25rem);
   // fs-100-200
@@ -64,6 +65,19 @@
 }
 
 // ==============================
+//       Font Face Setup
+// ==============================
+@font-face {
+  font-family: "Josefin Sans", sans-serif;
+  font-style: normal;
+  src: url("webfont.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("webfont.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("webfont.woff") format("woff"),
+    /* Pretty Modern Browsers */ url("webfont.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("webfont.svg#svgFontName") format("svg"); /* Legacy iOS */
+}
+
+// ==============================
 //       Utilities Classes
 // ==============================
 
@@ -74,8 +88,12 @@
   margin-inline: auto;
 }
 
+// ==============================
+//       Elements Customs
+// ==============================
+
 body {
-  font-family: var(--font-family);
+  font-family: var(--body-font-family);
   font-weight: var(--fw-regular);
   font-size: var(--body-text);
   color: var(--white-clr);
@@ -157,14 +175,17 @@ main.container {
 
 .meteo__temperature {
   font-size: var(--temperature-text);
+  font-family: var(--number-font-family);
   line-height: 1;
 }
 
 .meteo-bottom {
+  --gap: clamp(0.75rem, 0.4022rem + 1.7391vi, 1.75rem);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: var(--gap);
 
   & .meteo__items {
     display: flex;
@@ -178,6 +199,7 @@ main.container {
 
     & .meteo__text__value {
       font-size: clamp(0.9375rem, 0.8288rem + 0.5435vi, 1.25rem);
+      font-family: var(--number-font-family);
       font-weight: var(--fw-medium);
       line-height: 1;
     }
@@ -226,6 +248,7 @@ main.container {
   font-size: var(--timer);
   line-height: 1.1;
   font-weight: var(--fw-semi-bold);
+  font-family: var(--number-font-family);
 }
 
 .location__text {
@@ -257,7 +280,7 @@ main.container {
   border: 1px solid var(--white-clr);
   border-radius: 100vmax;
 
-  padding: 0.875rem 0;
+  padding: 0.75rem 0;
 }
 
 // ===========================
@@ -293,6 +316,7 @@ footer {
 
   &__content {
     font-size: var(--details-content);
+    font-family: var(--number-font-family);
   }
 }
 
@@ -315,18 +339,19 @@ footer {
     gap: 3rem;
   }
 
+  .meteo {
+    align-items: center;
+  }
+
   .main-container {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
   }
 
-  .meteo {
-    align-items: center;
-  }
-
   .expand-btn {
     width: 11rem;
+    padding: 0.9375rem 0;
     margin-block-end: 0.5rem;
   }
 
