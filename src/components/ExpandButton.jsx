@@ -29,8 +29,8 @@ export const ExpandButton = () => {
     const xRange = mapRange(0, bounds.width, -1, 1)(relativeX);
     const yRange = mapRange(0, bounds.height, -1, 1)(relativeY);
 
-    x.set(xRange * 20);
-    y.set(yRange * 20);
+    x.set(xRange * 10);
+    y.set(yRange * 10);
   };
 
   return (
