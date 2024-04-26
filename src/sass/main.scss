@@ -30,15 +30,16 @@
     1
   );
 
+  --ease-out: cubic-bezier(0.79, -0.26, 0.27, 1.25);
+
   // Colors
   --white-clr: hsl(120, 100%, 100%);
   --dark-clr: hsl(201, 20%, 17%);
 
   // Fonts
   --body-font-family: "Josefin Sans", sans-serif;
-  --number-font-family: "Leaner";
+  --number-font-family: "Leaner", sans-serif;
   --fw-bold: 700;
-  --fw-semi-bold: 600;
   --fw-medium: 500;
   --fw-regular: 400;
 
@@ -96,14 +97,32 @@
 // ==============================
 //       Font Face Setup
 // ==============================
+
 @font-face {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "abcd";
   font-style: normal;
-  src: url("webfont.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */ url("webfont.woff2") format("woff2"),
-    /* Super Modern Browsers */ url("webfont.woff") format("woff"),
-    /* Pretty Modern Browsers */ url("webfont.ttf") format("truetype"),
-    /* Safari, Android, iOS */ url("webfont.svg#svgFontName") format("svg"); /* Legacy iOS */
+  font-weight: 100 900;
+  src: local("Josefin Sans"), local("JosefinSans"),
+    url("../assets/fonts/josefin/josefin-sans-variable-font-normal.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Leaner";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Leaner"), local("Leaner-Regular"), local("LeanerRegular"),
+    url("../assets/fonts/leaner/leaner-regular.woff2") format("woff2"),
+    url("../assets/fonts/leaner/leaner-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Leaner";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Leaner"), local("Leaner-Bold"), local("LeanerBold"),
+    url("../assets/fonts/leaner/leaner-bold.woff2") format("woff2"),
+    url("../assets/fonts/leaner/leaner-bold.woff") format("woff");
 }
 
 // ==============================
@@ -149,7 +168,7 @@ main.container {
   display: flex;
   flex-direction: column;
 
-  transition: transform 400ms ease-in-out;
+  transition: transform 400ms var(--ease-out);
 
   & .header-container {
     flex-grow: 2;
@@ -158,7 +177,7 @@ main.container {
 
 .wrapper.active {
   transform: translateY(-350px);
-  transition: transform 400ms ease-in-out;
+  transition: transform 400ms var(--ease-out);
 }
 
 .header-container {
@@ -193,7 +212,7 @@ main.container {
 
 .quote__author {
   font-size: var(--quotes);
-  font-weight: var(--fw-semi-bold);
+  font-weight: var(--fw-bold);
   letter-spacing: 1px;
 }
 
@@ -289,13 +308,13 @@ main.container {
 .timers__text {
   font-size: var(--timer);
   line-height: 1.1;
-  font-weight: var(--fw-semi-bold);
+  font-weight: var(--fw-bold);
   font-family: var(--number-font-family);
 }
 
 .location__text {
   font-size: var(--location);
-  font-weight: var(--fw-semi-bold);
+  font-weight: var(--fw-bold);
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
@@ -309,9 +328,9 @@ main.container {
   align-items: center;
   justify-content: center;
 
-  font-family: var(--font-family);
+  // font-family: var(--font-family);
   font-size: var(--expand-btn);
-  font-weight: var(--fw-semi-bold);
+  font-weight: var(--fw-bold);
   color: var(--white-clr);
   letter-spacing: 2px;
   text-transform: capitalize;
@@ -348,12 +367,12 @@ footer {
   background-color: var(--dark-clr);
   padding-block: var(--space-l);
 
-  transition: bottom 400ms ease-in-out;
+  transition: bottom 400ms var(--ease-out);
 }
 
 .footer-container.active {
   bottom: 0;
-  transition: bottom 400ms ease-in-out;
+  transition: bottom 400ms var(--ease-out);
 }
 
 .more-details {
