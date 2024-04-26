@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { ExpandButton } from "./ExpandButton";
 
 export const CurrentlyTimer = () => {
   const LOCATION_REQUEST_URL = "http://ip-api.com/json/";
@@ -86,7 +85,7 @@ export const CurrentlyTimer = () => {
   }, [getTime]);
 
   return (
-    <section className="currently-timer">
+    <div className="currently-timer">
       <div className="currently-timer__greeting">
         <div className="greeting__icons">{greetingIcons}</div>
 
@@ -108,6 +107,6 @@ export const CurrentlyTimer = () => {
           In {countryName}, {countryCode}
         </p>
       </div>
-    </section>
+    </div>
   );
 };
