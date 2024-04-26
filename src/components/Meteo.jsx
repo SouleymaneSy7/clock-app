@@ -26,7 +26,6 @@ export const Meteo = () => {
           const wData = response.data;
 
           setWeatherData(wData.data.values);
-          console.log(wData);
         })
         .catch(function (error) {
           console.log(error);
@@ -39,11 +38,6 @@ export const Meteo = () => {
   return (
     <div className="meteo">
       <div className="meteo-top">
-        {/* <img
-          className="meteo--icon"
-          src={`${weatherData.weatherCode}`}
-          alt="Powered by Tomorrow.io"
-        /> */}
         <p className="meteo__temperature">
           {Math.round(weatherData.temperature)}&deg;
         </p>
@@ -52,24 +46,24 @@ export const Meteo = () => {
       <div className="meteo-bottom">
         <div className="meteo__items">
           <i className="fa-solid fa-wind"></i>
-          <p className="meteo__wind-speed meteo__text">Wind</p>
-          <p className="meteo__wind-speed__value meteo__text__value">
+          <p className="meteo__text">Wind</p>
+          <p className="meteo__text__value">
             {Math.round(weatherData.windSpeed)} <span>m/h</span>
           </p>
         </div>
 
         <div className="meteo__items">
           <i className="fa-solid fa-droplet"></i>
-          <p className="meteo__humidy meteo__text">Humidity</p>
-          <p className="meteo__humidy__value meteo__text__value">
+          <p className="meteo__text">Humidity</p>
+          <p className="meteo__text__value">
             {weatherData.humidity} <span>%</span>
           </p>
         </div>
 
         <div className="meteo__items">
           <i className="fa-solid fa-temperature-empty"></i>
-          <p className="meteo__feeling meteo__text">Feeling</p>
-          <p className="meteo__feeling__value meteo__text__value">
+          <p className="meteo__text">Feeling</p>
+          <p className="meteo__text__value">
             {Math.round(weatherData.temperatureApparent)} &deg;C
           </p>
         </div>
