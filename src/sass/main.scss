@@ -1,7 +1,56 @@
 @use "./reset";
 
 :root {
-  --elastic-out: linear(
+  //        Colors
+  // =====================
+
+  --white-clr: hsl(0, 0%, 100%);
+  --dark-clr: hsl(0, 0%, 0%);
+
+  //         Fonts
+  // =====================
+
+  --body-font-family: "Josefin Sans", sans-serif;
+  --number-font-family: "Leaner", sans-serif;
+
+  --fw-bold: 700;
+  --fw-medium: 500;
+  --fw-regular: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  //        Font Size
+  // =======================
+
+  --body-text: var(--quotes);
+  --quotes: clamp(1rem, 0.913rem + 0.4348vi, 1.25rem);
+  --greeting: clamp(0.9375rem, 0.8288rem + 0.5435vi, 1.25rem);
+  --timer: clamp(6.25rem, 4.0761rem + 10.8696vi, 12.5rem);
+  --standard: clamp(0.9375rem, 0.394rem + 2.7174vi, 2.5rem);
+  --location: clamp(0.9375rem, 0.7418rem + 0.9783vi, 1.5rem);
+  --expand-btn: clamp(0.9375rem, 0.8723rem + 0.3261vi, 1.125rem);
+  --details-title: clamp(0.8125rem, 0.769rem + 0.2174vi, 0.9375rem);
+  --details-content: clamp(1.25rem, 0.4674rem + 3.913vi, 3.5rem);
+  --temperature-text: clamp(3.75rem, 3.3152rem + 2.1739vi, 5rem);
+  --meteo-text: clamp(0.75rem, 0.6848rem + 0.3261vi, 0.9375rem);
+  --meteo-text-value: clamp(0.9375rem, 0.8288rem + 0.5435vi, 1.25rem);
+
+  //          Spacing
+  // ========================
+
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vi, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vi, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vi, 1.875rem);
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348vi, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vi, 3.75rem);
+
+  //        Transition Easing
+  // ==============================
+
+  --custom-elastic-out: linear(
     0,
     0.2178 2.1%,
     1.1144 8.49%,
@@ -29,69 +78,11 @@
     0.9981 86.66%,
     1
   );
+  --custom-ease-out: cubic-bezier(0.79, -0.26, 0.27, 1.25);
 
-  --ease-out: cubic-bezier(0.79, -0.26, 0.27, 1.25);
-
-  // Colors
-  --white-clr: hsl(120, 100%, 100%);
-  --dark-clr: hsl(201, 20%, 17%);
-
-  // Fonts
-  --body-font-family: "Josefin Sans", sans-serif;
-  --number-font-family: "Leaner", sans-serif;
-  --fw-bold: 700;
-  --fw-medium: 500;
-  --fw-regular: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  //   Font Size
-  // ===============
-
-  --temperature-text: clamp(3.75rem, 3.3152rem + 2.1739vi, 5rem);
-
-  --body-text: var(--quotes);
-  // fs-12-18
-  --quotes: clamp(1rem, 0.913rem + 0.4348vi, 1.25rem);
-  // fs-15-20
-  --greeting: clamp(0.9375rem, 0.8288rem + 0.5435vi, 1.25rem);
-  // fs-100-200
-  --timer: clamp(6.25rem, 4.0761rem + 10.8696vi, 12.5rem);
-  // fs-15-40
-  --standard: clamp(0.9375rem, 0.394rem + 2.7174vi, 2.5rem);
-  // fs-15-24
-  --location: clamp(0.9375rem, 0.7418rem + 0.9783vi, 1.5rem);
-  // fs-12-16
-  --expand-btn: clamp(0.9375rem, 0.8723rem + 0.3261vi, 1.125rem);
-  // fs-13-15
-  --details-title: clamp(0.8125rem, 0.769rem + 0.2174vi, 0.9375rem);
-  // fs-20-56
-  --details-content: clamp(1.25rem, 0.4674rem + 3.913vi, 3.5rem);
-
-  // Spacing
-  --spacing-root: clamp(2.25rem, 2.163rem + 0.4348vi, 2.5rem);
-
-  /* Space 3xs: 5px → 5px */
-  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vi, 0.3125rem);
-  /* Space 2xs: 9px → 10px */
-  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vi, 0.625rem);
-  /* Space xs: 14px → 15px */
-  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vi, 0.9375rem);
-  /* Space s: 18px → 20px */
-  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vi, 1.25rem);
-  /* Space m: 27px → 30px */
-  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vi, 1.875rem);
-  /* Space l: 36px → 40px */
-  --space-l: clamp(2.25rem, 2.163rem + 0.4348vi, 2.5rem);
-  /* Space xl: 54px → 60px */
-  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vi, 3.75rem);
-  /* Space 2xl: 72px → 80px */
-  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vi, 5rem);
-  /* Space 3xl: 108px → 120px */
-  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vi, 7.5rem);
+  --wrapper-show-transition: transform 400ms var(--custom-ease-out);
+  --expand-btn-transition: all 800ms var(--custom-elastic-out);
+  --footer-transition: bottom 400ms var(--custom-ease-out);
 }
 
 // ==============================
@@ -99,7 +90,7 @@
 // ==============================
 
 @font-face {
-  font-family: "abcd";
+  font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 100 900;
   src: local("Josefin Sans"), local("JosefinSans"),
@@ -137,7 +128,7 @@
 }
 
 // ==============================
-//       Elements Customs
+//       General Styling
 // ==============================
 
 body {
@@ -146,9 +137,9 @@ body {
   font-size: var(--body-text);
   color: var(--white-clr);
 
-  background-image: url("../assets/img-4.jpg");
+  background-image: url("../assets/images/img-1.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-color: var(--dark-clr);
 
@@ -168,7 +159,7 @@ main.container {
   display: flex;
   flex-direction: column;
 
-  transition: transform 400ms var(--ease-out);
+  transition: var(--wrapper-show-transition);
 
   & .header-container {
     flex-grow: 2;
@@ -176,8 +167,8 @@ main.container {
 }
 
 .wrapper.active {
-  transform: translateY(-350px);
-  transition: transform 400ms var(--ease-out);
+  transform: translateY(-14rem);
+  transition: var(--wrapper-show-transition);
 }
 
 .header-container {
@@ -194,7 +185,7 @@ main.container {
 
 .quote-container {
   --quote-gap: clamp(1.125rem, 1.0815rem + 0.2174vi, 1.25rem);
-  --quote-width: 600px;
+  --quote-width: 37.5rem;
 
   width: min(100%, var(--quote-width));
 
@@ -213,7 +204,7 @@ main.container {
 .quote__author {
   font-size: var(--quotes);
   font-weight: var(--fw-bold);
-  letter-spacing: 1px;
+  letter-spacing: 0.0625rem;
 }
 
 .quote--refresh-btn {
@@ -255,13 +246,13 @@ main.container {
     gap: 0.5rem;
 
     & .meteo__text {
-      font-size: clamp(0.75rem, 0.6848rem + 0.3261vi, 0.9375rem);
+      font-size: var(--meteo-text);
     }
 
     & .meteo__text__value {
-      font-size: clamp(0.9375rem, 0.8288rem + 0.5435vi, 1.25rem);
       font-family: var(--number-font-family);
-      font-weight: var(--fw-medium);
+      font-size: var(--meteo-text-value);
+      font-weight: var(--fw-bold);
       line-height: 1;
     }
   }
@@ -302,20 +293,20 @@ main.container {
 .greeting__text {
   font-size: var(--greeting);
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 0.1875rem;
 }
 
 .timers__text {
+  font-family: var(--number-font-family);
   font-size: var(--timer);
   line-height: 1.1;
   font-weight: var(--fw-bold);
-  font-family: var(--number-font-family);
 }
 
 .location__text {
   font-size: var(--location);
   font-weight: var(--fw-bold);
-  letter-spacing: 1.5px;
+  letter-spacing: 0.09375rem;
   text-transform: uppercase;
 }
 
@@ -328,22 +319,21 @@ main.container {
   align-items: center;
   justify-content: center;
 
-  // font-family: var(--font-family);
   font-size: var(--expand-btn);
   font-weight: var(--fw-bold);
   color: var(--white-clr);
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
   text-transform: capitalize;
 
   width: 9rem;
 
   background-color: transparent;
-  border: 1px solid var(--white-clr);
+  border: 0.0625rem solid var(--white-clr);
   border-radius: 100vmax;
 
   padding: 0.75rem 0;
 
-  transition: all 800ms var(--elastic-out);
+  transition: var(--expand-btn-transition);
 
   &:is(:hover, :focus-visible) {
     background-color: var(--white-clr);
@@ -357,7 +347,7 @@ main.container {
 //        More Details
 // ===========================
 
-footer {
+.footer-container {
   position: absolute;
   bottom: -100%;
   left: 0;
@@ -367,12 +357,12 @@ footer {
   background-color: var(--dark-clr);
   padding-block: var(--space-l);
 
-  transition: bottom 400ms var(--ease-out);
+  transition: var(--footer-transition);
 }
 
 .footer-container.active {
   bottom: 0;
-  transition: bottom 400ms var(--ease-out);
+  transition: var(--footer-transition);
 }
 
 .more-details {
@@ -392,18 +382,22 @@ footer {
   }
 
   &__content {
-    font-size: var(--details-content);
     font-family: var(--number-font-family);
+    font-size: var(--details-content);
   }
 }
 
-@media only screen and (min-width: 768px) {
+// ==============================
+//          Media Queries
+// ==============================
+
+@media only screen and (min-width: 48em) {
   .greeting__currently {
     display: inline;
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 64em) {
   .header-container {
     flex-direction: row;
     justify-content: space-between;
