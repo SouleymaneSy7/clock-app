@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useMotionValue } from "framer-motion";
 
+import { useToggleUpdate } from "../contexts/ToggleContext";
+
 export const ExpandButton = () => {
   const [isExpand, setIsExpand] = useState(false);
 
@@ -9,6 +11,9 @@ export const ExpandButton = () => {
     setIsExpand(!isExpand);
   };
 
+  const handleToggle = useToggleUpdate();
+
+  // Button Animation
   const mapRange = (inputLower, inputUpper, outputLower, outputUpper) => {
     const INPUT_RANGE = inputUpper - inputLower;
     const OUTPUT_RANGE = outputUpper - outputLower;
@@ -45,7 +50,10 @@ export const ExpandButton = () => {
         x.set(0);
         y.set(0);
       }}
-      onClick={handleExpand}
+      onClick={() => {
+        handleToggle();
+        handleExpand();
+      }}
       style={{ x, y }}
     >
       <motion.span className="expand-btn__title" style={{ x, y }}>

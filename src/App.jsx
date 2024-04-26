@@ -1,28 +1,17 @@
-import { CurrentlyTimer } from "./components/CurrentlyTimer";
-import { ExpandButton } from "./components/ExpandButton";
-import { Meteo } from "./components/Meteo";
-import { MoreDetails } from "./components/MoreDetails";
-import { Quotes } from "./components/Quotes";
+import { Wrapper } from "./components/Wrapper";
+import { Footer } from "./components/Footer";
+
+import { ToggleProvider } from "./contexts/ToggleContext";
 
 function App() {
   return (
-    <>
+    <ToggleProvider>
       <main className="container">
-        <header className="header-container">
-          <Quotes />
-          <Meteo />
-        </header>
+        <Wrapper />
 
-        <section className="main-container">
-          <CurrentlyTimer />
-          <ExpandButton />
-        </section>
-
-        <footer className="footer-container">
-          <MoreDetails />
-        </footer>
+        <Footer />
       </main>
-    </>
+    </ToggleProvider>
   );
 }
 
