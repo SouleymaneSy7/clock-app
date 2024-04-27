@@ -29,7 +29,7 @@ This is a Clock and Widget App to display the currently hours and minutes based 
 
 ### More Details
 
-![More Details](./preview/More-details.png)
+![More Details](./preview/More-Details.png)
 
 ## Built with
 
